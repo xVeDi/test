@@ -75,9 +75,9 @@ func dirTree(out io.Writer, path string, printFiles bool) error {
 		countFiles = len(files)
 	} else {
 		for _, f := range files {
-			fi, err := os.Stat(path + "/" + f.Name())
+			fi, err := os.Stat(path + string(os.PathSeparator) + f.Name())
 			if err != nil {
-				//log.Fatal(err)
+				log.Fatal(err)
 			}
 
 			if fi.Mode().IsDir() {
@@ -92,7 +92,7 @@ func dirTree(out io.Writer, path string, printFiles bool) error {
 
 	for _, f := range files {
 		countFiles--
-		fi, err := os.Stat(path + "/" + f.Name())
+		fi, err := os.Stat(path + string(os.PathSeparator) + f.Name())
 		if err != nil {
 			log.Fatal(err)
 		}
