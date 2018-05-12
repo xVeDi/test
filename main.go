@@ -65,7 +65,7 @@ func dirTree(out io.Writer, path string, printFiles bool) error {
 
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
-		//log.Fatal(err)
+		log.Fatal(err)
 	}
 
 	countFiles := 0
