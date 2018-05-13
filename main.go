@@ -112,7 +112,7 @@ func dirTree(out io.Writer, path string, printFiles bool) error {
 			} else {
 				push("│	")
 			}
-			dirTree(out, path+"/"+f.Name(), printFiles)
+			dirTree(out, path+string(os.PathSeparator)+f.Name(), printFiles)
 		}
 	}
 	return err
